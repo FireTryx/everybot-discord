@@ -8,7 +8,7 @@ const Client = new Discord.Client({
 
 const prefix = "+";
 
-Client.login(process.env.token)
+Client.login(process.env.TOKEN)
 
 Client.on("messageCreate", message => {
     if(message.content === "bouton"){
