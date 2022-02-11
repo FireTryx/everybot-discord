@@ -57,12 +57,13 @@ Client.on("messageCreate", message => {
 });
 
 Client.on("ready", async () => {
-    Client.user.setStatus("idle");
-    Client.user.setActivity("Discord");
+    Client.user.setStatus("dnd");
+     setTimeout(() => {
+          Client.user.setActivity("Alynia PvP", {type: "PLAYING"} );
+     }, 100)
     console.log("Le Bot Est En Ligne");
 });
 
 Client.on("ready", () => {
     console.log("Le bot est vraiment en ligne")
 });
-
