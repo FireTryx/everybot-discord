@@ -34,7 +34,7 @@ Client.on("ready", async () => {
     console.log("Veuillez patientez ...");
     Client.user.setStatus("dnd");
      setTimeout(() => {
-          Client.user.setActivity("", {type: "PLAYING"} );
+          Client.user.setActivity("OuiOui, sur Netflix", {type: "PLAYING"} );
      }, 100)
 
 });
