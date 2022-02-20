@@ -8,62 +8,37 @@ const Client = new Discord.Client({
 
 const prefix = "+";
 
-Client.login(process.env.TOKEN)
+Client.login(process.env.TOKEN);
 
 Client.on("messageCreate", message => {
-    if(message.content === "bouton"){
+    if(message.content === prefix + "bouton youtube"){
         var row = new Discord.MessageActionRow()
         .addComponents(new Discord.MessageButton()
-            .setCustomId("bu23tt88on")
-            .setLabel("Appuyez-içi")
-            .setStyle("DANGER")
-            .setEmoji("👍")
-        ).addComponents(new Discord.MessageButton()
-            .setLabel("Clique-içi pour être redirigé sur ma chaine YouTube")
+            .setLabel("Clique içi pour être redirigé(e) sur la chaîne YouTube de Loxstazz")
             .setStyle("LINK")
             .setEmoji("💻")
-            .setURL("https://www.youtube.com/channel/UCv_CFqKlr9IGXREswCqB6sw")
-        );
-
-        message.channel.send({content: "message avec un bouton", components: [row]});
-    }
-});
-
-Client.on("interactionCreate", interaction => {
-    if(interaction.isButton()){
-        if(interaction.customId === "bu23tt88on"){
-            interaction.reply("Merci d'avoir interragis avec moi");
-        }
+            .setURL("https://bit.ly/3GGWpzd")
+        )
+        message.channel.send({content: "__Voici la chaines YouTube du Fondateur__", components: [row]});
     }
 });
 
 Client.on("messageCreate", message => {
 
-    if (message.author.bot) return;
+    if(message.author.bot) return;
     if(message.channel.type == "DM") return;
-
-    if(message.content === prefix + "help"){
-        message.reply("Je t'invite à ouvrir un ticket où à allez dans le salon aide pour en savoir plus")
-    }
-
-    if(message.content === prefix + "ip omega"){
-        message.reply("L'ip de notre serveur Oméga est: omegarp.ml")
-    }
-
-    if (message.content === prefix + "ip site"){
-        message.reply("L'IP de notre site Internet est: omegapvp.rf.gd")
-    }
 
 });
 
 Client.on("ready", async () => {
+    console.log("Veuillez patientez ...");
     Client.user.setStatus("dnd");
      setTimeout(() => {
-          Client.user.setActivity("Alynia PvP", {type: "PLAYING"} );
+          Client.user.setActivity("", {type: "PLAYING"} );
      }, 100)
-    console.log("Le Bot Est En Ligne");
+
 });
 
 Client.on("ready", () => {
-    console.log("Le bot est vraiment en ligne")
+    console.log("Le bot est en ligne")
 });
